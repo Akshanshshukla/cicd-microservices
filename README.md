@@ -24,7 +24,7 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -r requirements-dev.txt
-python -m pytest -q
+python -m pytest -q tests
 docker compose up --build -d
 ```
 
@@ -55,7 +55,7 @@ py -3.12 -m venv .venv
 .venv\Scripts\activate.bat
 python -m pip install --upgrade pip
 python -m pip install -r requirements-dev.txt
-python -m pytest -q
+python -m pytest -q tests
 docker compose up --build -d
 curl http://localhost:8080/health
 curl http://localhost:8080/api/orders
@@ -214,4 +214,3 @@ Jenkinsfile               Jenkins CI pipeline
 terraform/                Optional AWS infrastructure
 docker-compose.yml        Local multi-container environment
 ```
-

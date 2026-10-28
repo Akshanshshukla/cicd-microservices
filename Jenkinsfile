@@ -5,7 +5,7 @@ pipeline {
     stage('Unit tests') {
       steps {
         sh 'python -m pip install -r requirements-dev.txt'
-        sh 'python -m pytest -q'
+        sh 'python -m pytest -q tests'
       }
     }
     stage('Build containers') {
