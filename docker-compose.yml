@@ -1,0 +1,23 @@
+services:
+  orders:
+    build: ./services/orders
+    ports: ["8000:8000"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+  catalog:
+    build: ./services/catalog
+    ports: ["8001:8001"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+  gateway:
+    build: ./deploy/nginx
+    ports: ["8080:8080"]
+    depends_on:
+      orders: { condition: service_healthy }
+      catalog: { condition: service_healthy }

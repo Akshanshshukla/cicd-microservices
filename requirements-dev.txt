@@ -1,0 +1,4 @@
+-r services/orders/requirements.txt
+-r services/catalog/requirements.txt
+httpx==0.28.1
+pytest==8.3.5

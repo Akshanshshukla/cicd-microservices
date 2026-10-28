@@ -1,0 +1,4 @@
+aws_region    = "us-east-1"
+image_tag     = "v1"
+desired_count = 0
+allowed_cidr  = "YOUR_PUBLIC_IPV4/32"
